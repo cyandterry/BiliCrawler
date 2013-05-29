@@ -1,4 +1,6 @@
-This is crawler for the site http://www.bilibili.tv.
-The object to build this app is to learn Scrapy and analyze the status of videows for bilibili
+<p>This is crawler for the site http://www.bilibili.tv.</p>
+<p>The object to build this app is to learn Scrapy and analyze the status of videows for bilibili</p>
 
-<h2>这是一个Bilibili的爬虫工具，主要目的是用于爬虫学习和对bilibili视频的分析</h2>
+<hr />
+
+<p>这是一个Bilibili的爬虫工具，主要目的是用于爬虫学习和对bilibili视频的分析</p>
