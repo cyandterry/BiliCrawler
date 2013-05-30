@@ -4,7 +4,6 @@ from scrapy.selector import HtmlXPathSelector
 from bili.items import BiliItem
 
 class BiliSpider(CrawlSpider):
-
     name = 'bili'
     allowed_domains = ['bilibili.tv']
     start_urls = []
