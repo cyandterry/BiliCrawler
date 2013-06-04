@@ -10,7 +10,9 @@
 
 <p>Or if you want to view it in csv file, you can also generate csv file by typing: <br /><code>scrapy crawl bili -o result.csv -t csv</code></p>
 
-<p>Usage: <br />Install all the required packages and run the script genbili.sh by typing:<br /><code>./genbili.sh</code></p>
+<h3>Usage:</h3>
+
+<p>Install all the required packages and run the script genbili.sh by typing:<br /><code>./genbili.sh</code></p>
 
 <hr />
 
