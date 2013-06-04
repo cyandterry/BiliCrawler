@@ -14,7 +14,7 @@ else:
     file = filename + '.xls'
 # File is stored at ***.xls
 
-json_data=open('/home/ycao/Documents/bili/items.json')
+json_data=open('./items.json')
 data = json.load(json_data)
 
 lineNo = 0

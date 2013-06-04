@@ -1,0 +1,30 @@
+# Generated result #
+####################
+*.csv
+*.xls
+*.json
+
+# Editor temporary files #
+##########################
+# vi
+*.sw?
+# emacs
+*~
+.#*
+
+# .pyc and templates #
+######################
+*.pyc
+*Template.p*
+
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
