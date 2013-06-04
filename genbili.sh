@@ -1,11 +1,26 @@
 #!/bin/bash
+
+date1=$(date +"%s")
+
 clear
 
-rm items.json
-rm result.xls
+if [ -f items.json ];
+then
+    rm items.json
+    echo "items.json exists and will be removed first"
+fi
+
+if [ -f result.xls ];
+then
+    rm result.xls
+    echo "result.xls exists and will be removed first"
+fi
 
 scrapy crawl bili -o items.json -t json
 
 ./jsonConverter.py
 
-read -p "Crawling is done! Result is store at result.xls. Press [Enter] key to Finish..."
+date2=$(date +"%s")
+diff=$(($date2-$date1))
+
+read -p "Crawling is done! Total time used is $(($diff / 60)) minutes and $(($diff % 60)) seconds. Result is stored at result.xls. Press [Enter] key to Finish..."
