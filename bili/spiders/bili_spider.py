@@ -3,6 +3,8 @@ from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
 from scrapy.selector import HtmlXPathSelector
 from bili.items import BiliItem
 
+import xlwt, urllib2, re
+
 class BiliSpider(CrawlSpider):
     name = 'bili'
     allowed_domains = ['bilibili.tv']
@@ -16,17 +18,22 @@ class BiliSpider(CrawlSpider):
         #self.log('Here is the page %s' % response.url)
         hxs = HtmlXPathSelector(response)
         if hxs.select("//center").extract():
-            self.log("$"*100)
-            self.log('Jumping since not found')
             return
         bili = BiliItem()
         bili['url']     = response.url
+        bili['avNo']    = re.search(r'\d+', str(response.url)).group()
         bili['title']   = hxs.select("//h2/text()").extract()[0]
         bili['time']    = hxs.select("//time/i/text()").extract()[0]
 
+        infoAddress = 'http://interface.bilibili.tv/count?aid='+bili['avNo']
+        request = urllib2.Request(infoAddress)
+        response = urllib2.urlopen(request)
+        content = response.read()
+        dataList = re.findall(r'\d+',content)
+
         # Guess the below items are created by js. So cannot do crawl
-        #bili['play']    = hxs.select("//i[@id='dianji']/text()").extract()[0]
-        #bili['favor']   = hxs.select("//i[@id='stow_count']/text()").extract()[0]
-        #bili['v_time']  = hxs.select("//span[@id='v_ctimes']/text()").extract()[0]
-        #bili['v_score'] = hxs.select("//span[@id='v_cscores']/text()").extract()[0]
+        bili['play']    = dataList[0]
+        bili['favor']   = dataList[1]
+        bili['v_time']  = dataList[2]
+        bili['v_score'] = dataList[3]
         return bili
