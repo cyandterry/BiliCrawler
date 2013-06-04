@@ -1,16 +1,16 @@
 <h2>BiliCrawler</h2>
 
-<p>This is crawler for the site http://www.bilibili.tv.</p>
+<p>This is a crawler for the site http://www.bilibili.tv.</p>
 
-<p>The intention to build this app is to learn Scrapy and gather video informations from bilibili.tv</p>
+<p>The intention to build this app is to learn Scrapy and gather video informations from bilibili.tv.</p>
 
 <p>BiliCrawler is build on <a href="http://scrapy.org/">Scrapy</a>. For installation and documentation about Scrapy, please click <a href="http://doc.scrapy.org/en/latest/intro/install.html">HERE</a>.</p>
 
-<p>In order to generate Excel result of crawling, you should also install <a href="http://www.python-excel.org/">xlwt</a>. Please <a href="https://pypi.python.org/pypi/xlwt">download</a> and install it here</p>
+<p>In order to generate Excel crawling result, you should install <a href="http://www.python-excel.org/">xlwt</a>. Please downloadand install it <a href="ttps://pypi.python.org/pypi/xlwt"></a></p>
 
-<p>Or if you can view it in csv file, you can also generate csv file by typing: <code>scrapy crawl bili -o result.csv -t csv</code></p>
+<p>Or if you want to view it in csv file, you can also generate csv file by typing: <br /><code>scrapy crawl bili -o result.csv -t csv</code></p>
 
-<p>Usage: Install all the required packages and run the script genbili.sh by typing: <code>./genbili.sh</code></p>
+<p>Usage: <br />Install all the required packages and run the script genbili.sh by typing:<br /><code>./genbili.sh</code></p>
 
 <hr />
 
