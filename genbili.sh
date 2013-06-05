@@ -10,12 +10,6 @@ then
     echo "items.json exists and will be removed first"
 fi
 
-if [ -f result.xls ];
-then
-    rm result.xls
-    echo "result.xls exists and will be removed first"
-fi
-
 scrapy crawl bili -o items.json -t json
 
 ./jsonConverter.py

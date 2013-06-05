@@ -8,7 +8,7 @@ parser = OptionParser()
 parser.add_option("-f", "--file", dest="filename", help="write to a specific FILE", metavar="FILE")
 (options, args) = parser.parse_args()
 if options.filename is None:
-    file = 'result.xls'
+    file = strftime("%Y%m%d_%H_%M", localtime() + '.xls'
 else:
     filename = options.filename.split(".")[0]
     file = filename + '.xls'

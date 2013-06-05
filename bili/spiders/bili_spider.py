@@ -10,7 +10,7 @@ class BiliSpider(CrawlSpider):
     allowed_domains = ['bilibili.tv']
     #start_urls = ['http://www.bilibili.tv/video']
     start_urls = []
-    for index in range(100,2100):
+    for index in range(100,10000):
         start_urls.append('http://www.bilibili.tv/video/av' + str(index))
     '''
     rules = [Rule(SgmlLinkExtractor(allow=['av\d+']), callback='parse_bili')]
