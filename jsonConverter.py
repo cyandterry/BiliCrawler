@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from optparse import OptionParser
+from time import localtime, strftime
 import json
 import xlwt
 
@@ -8,7 +9,7 @@ parser = OptionParser()
 parser.add_option("-f", "--file", dest="filename", help="write to a specific FILE", metavar="FILE")
 (options, args) = parser.parse_args()
 if options.filename is None:
-    file = strftime("%Y%m%d_%H_%M", localtime() + '.xls'
+    file = strftime("%Y%m%d_%H_%M", localtime()) + '.xls'
 else:
     filename = options.filename.split(".")[0]
     file = filename + '.xls'
