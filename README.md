@@ -6,7 +6,7 @@
 
 <p>BiliCrawler is build on <a href="http://scrapy.org/">Scrapy</a>. For installation and documentation about Scrapy, please click <a href="http://doc.scrapy.org/en/latest/intro/install.html">HERE</a>.</p>
 
-<p>In order to generate Excel crawling result, you should install python excel package <a href="http://www.python-excel.org/">xlwt</a>. Please downloadand install it <a href="ttps://pypi.python.org/pypi/xlwt"> HERE</a>.</p>
+<p>In order to generate Excel crawling result, you should install python excel package <a href="http://www.python-excel.org/">xlwt</a>. Please downloadand install it <a href="https://pypi.python.org/pypi/xlwt"> HERE</a>.</p>
 
 <p>Or if you want to view it in csv file, you can also generate csv file by typing: <br /><code>scrapy crawl bili -o result.csv -t csv</code></p>
 
