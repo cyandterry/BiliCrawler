@@ -1,4 +1,6 @@
 #!/bin/bash
+echo $1
+echo $2
 
 date1=$(date +"%s")
 
@@ -10,7 +12,17 @@ then
     echo "items.json exists and will be removed first"
 fi
 
-scrapy crawl bili -o items.json -t json
+if [ -z "$1" ]
+then
+    scrapy crawl bili -o items.json -t json
+else
+    if [ -z "$2" ]
+    then
+        scrapy crawl bili -o items.json -t json -a end=$1
+    else
+        scrapy crawl bili -o items.json -t json -a begin=$1 -a end=$2
+    fi
+fi
 
 ./jsonConverter.py
 

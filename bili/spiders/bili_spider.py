@@ -8,18 +8,25 @@ import xlwt, urllib2, re
 class BiliSpider(CrawlSpider):
     name = 'bili'
     allowed_domains = ['bilibili.tv']
-    #start_urls = ['http://www.bilibili.tv/video']
     start_urls = []
-    for index in range(100,10000):
-        start_urls.append('http://www.bilibili.tv/video/av' + str(index))
+    #start_urls = ['http://www.bilibili.tv/video']
+    #rules = [Rule(SgmlLinkExtractor(allow=['av\d+']), callback='parse_bili')]
     '''
-    rules = [Rule(SgmlLinkExtractor(allow=['av\d+']), callback='parse_bili')]
     def parse_bili(self, response):
 
         self.log('$'*100)
         self.log(response.url)
         return
     '''
+
+    def __init__(self, begin = None, end = None):
+        if begin is None:
+            begin = 100
+        if end is None:
+            end = 593000
+
+        for index in range(int(begin), int(end)):
+                self.start_urls.append('http://www.bilibili.tv/video/av' + str(index))
 
     def parse(self, response):
         #self.log('$'*100)
