@@ -36,19 +36,19 @@ class BiliSpider(CrawlSpider):
             return
         bili = BiliItem()
         bili['url']     = response.url
-        bili['avNo']    = re.search(r'\d+', str(response.url)).group()
+        bili['avNo']    = int(re.search(r'\d+', str(response.url)).group())
         bili['title']   = hxs.select("//h2/text()").extract()[0]
         bili['time']    = hxs.select("//time/i/text()").extract()[0]
 
-        infoAddress = 'http://interface.bilibili.tv/count?aid='+bili['avNo']
+        infoAddress = 'http://interface.bilibili.tv/count?aid='+ str(bili['avNo'])
         request = urllib2.Request(infoAddress)
         response = urllib2.urlopen(request)
         content = response.read()
         dataList = re.findall(r'\d+',content)
 
         # Guess the below items are created by js. So cannot do crawl
-        bili['play']    = dataList[0]
-        bili['favor']   = dataList[1]
-        bili['v_time']  = dataList[2]
-        bili['v_score'] = dataList[3]
+        bili['play']    = int(dataList[0])
+        bili['favor']   = int(dataList[1])
+        bili['v_time']  = int(dataList[2])
+        bili['v_score'] = int(dataList[3])
         return bili
