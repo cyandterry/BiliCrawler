@@ -24,7 +24,7 @@ else
     fi
 fi
 
-./jsonConverter.py
+./injectDB.py
 
 date2=$(date +"%s")
 diff=$(($date2-$date1))
