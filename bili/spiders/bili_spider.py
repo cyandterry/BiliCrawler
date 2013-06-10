@@ -1,6 +1,8 @@
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
 from scrapy.selector import HtmlXPathSelector
+from scrapy.http import Request
+from scrapy import log
 from bili.items import BiliItem
 
 import xlwt, urllib2, re
@@ -29,8 +31,6 @@ class BiliSpider(CrawlSpider):
                 self.start_urls.append('http://www.bilibili.tv/video/av' + str(index))
 
     def parse(self, response):
-        #self.log('$'*100)
-        #self.log('Here is the page %s' % response.url)
         hxs = HtmlXPathSelector(response)
         if hxs.select("//center").extract():
             return
@@ -41,14 +41,19 @@ class BiliSpider(CrawlSpider):
         bili['time']    = hxs.select("//time/i/text()").extract()[0]
 
         infoAddress = 'http://interface.bilibili.tv/count?aid='+ str(bili['avNo'])
-        request = urllib2.Request(infoAddress)
-        response = urllib2.urlopen(request)
-        content = response.read()
+
+        yield Request( url = infoAddress, meta = {'bili':bili}, callback = self.parsejs)
+
+
+    def parsejs(self, response):
+        # These items are created by js.
+        content = response.body
         dataList = re.findall(r'\d+',content)
 
-        # Guess the below items are created by js. So cannot do crawl
+        bili = response.meta['bili']
         bili['play']    = int(dataList[0])
         bili['favor']   = int(dataList[1])
         bili['v_time']  = int(dataList[2])
         bili['v_score'] = int(dataList[3])
+
         return bili

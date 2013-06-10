@@ -12,7 +12,7 @@ if options.filename is None:
     file = strftime("%Y%m%d_%H_%M", localtime()) + '.xls'
 else:
     filename = options.filename.split(".")[0]
-    file = filename + '.xls'
+    file = strftime("%m%d", localtime()) + filename + '.xls'
 # File is stored at ***.xls
 
 json_data=open('./items.json')

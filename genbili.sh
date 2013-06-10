@@ -29,4 +29,4 @@ fi
 date2=$(date +"%s")
 diff=$(($date2-$date1))
 
-read -p "Crawling is done! Total time used is $(($diff / 60)) minutes and $(($diff % 60)) seconds. Result is stored at result.xls. Press [Enter] key to Finish..."
+read -p "Crawling is done! Total time used is $(($diff / 60)) minutes and $(($diff % 60)) seconds. Press [Enter] key to Finish..."
