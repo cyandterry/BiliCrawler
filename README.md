@@ -6,7 +6,7 @@
 
 <p>BiliCrawler is build on <a href="http://scrapy.org/">Scrapy</a>. For installation and documentation about Scrapy, please click <a href="http://doc.scrapy.org/en/latest/intro/install.html">HERE</a>.</p>
 
-<p><s>In order to generate Excel crawling result, you should install python excel package <a href="http://www.python-excel.org/">xlwt</a>. Please downloadand install it <a href="https://pypi.python.org/pypi/xlwt"> HERE</a>.</s></p>
+<p><strike>In order to generate Excel crawling result, you should install python excel package <a href="http://www.python-excel.org/">xlwt</a>. Please downloadand install it <a href="https://pypi.python.org/pypi/xlwt"> HERE</a>.</strike></p>
 
 <p>The latest version of BiliCrawler has switched from using excel as the output of result to use sqlite3 as result output. To install sqlite3, please use <code>sudo apt-get install sqlite3</code>. For other OS users, please see <a href="http://www.sqlite.org/download.html">HERE</a>. Type <code>import sqlite3</code> in your python shell to make sure you have the correct library in python. result will be stored in result.db. Use <code>sqlite3 result.db</code> to open the SQL and TABLE NAME is Bilibili.</p>
 
